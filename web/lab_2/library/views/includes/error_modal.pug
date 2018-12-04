@@ -1,0 +1,15 @@
+div(class='w3-modal w3-container w3-animate-zoom', id="error_dialog_" style="z-index: 100")
+    div(class='w3-modal-content w3-red')
+        span(onclick='closeErrorDialog()', class='w3-button w3-display-topright') &times
+        div(class='w3-panel')
+            h4 Error:
+            p(id='error_dialog_info')
+
+script.
+    function showErrorDialog(message) {
+        document.getElementById("error_dialog_").style.display='block';
+        document.getElementById("error_dialog_info").innerText = message;
+    }
+    function closeErrorDialog(){
+        document.getElementById("error_dialog_").style.display='none';
+    }

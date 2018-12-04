@@ -1,0 +1,110 @@
+#main{
+    margin: 0 auto;
+    width: 640px;
+    height: 480px;
+    text-align: center;
+}
+#left{
+    width: 300px;
+    height: 600px;
+    float: left;
+    text-align: left;
+}
+#head{
+    font-size: 48px;
+    font-family: "Times New Roman", serif;
+    font-weight: bold;
+    border-bottom-width: 20px;
+}
+#rules{
+    margin-top: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+#right{
+    width: 300px;
+    height: 600px;
+    float: left;
+}
+#nextfigure{
+    width: 110px;
+    height: 110px;
+    border: 4px double black;
+    padding: 5px;
+}
+#next{
+    text-align: center;
+}
+#tetrisfield{
+    width: 360px;
+    height: 600px;
+    border: 4px double black;
+}
+#info{
+    margin-left: 90px;
+    width: 110px;
+    margin-top: 10px;
+    border: 4px double black;
+}
+#start-btn {
+    display: block;
+    width: 30%;
+    margin: 5% auto 0;
+    padding: 15px;
+    background: #eee;
+    text-align: top;
+    cursor: pointer;
+}
+#start-btn:hover {
+    background: #fff;
+}
+#stop-btn {
+    display: block;
+    width: 30%;
+    margin: 5% auto 0;
+    padding: 15px;
+    background: #eee;
+    text-align: top;
+    cursor: pointer;
+}
+#stop-btn:hover {
+    background: #fff;
+}
+#reset-btn {
+    display: block;
+    width: 30%;
+    margin: 5% auto 0;
+    padding: 15px;
+    background: #eee;
+    text-align: top;
+    cursor: pointer;
+}
+#reset-btn:hover {
+    background: #fff;
+}
+.modalwin {
+    height: 100px;
+    width: 300px;
+    border: 3px outset gray;
+    background: white;
+    top: 20%;
+    right: 0;
+    left: 0;
+    font-size: 14px;
+    margin: 0 auto;
+    z-index:2;
+    display: none;
+    position: fixed;
+    padding: 15px;
+    border: 1px solid #383838;
+}
+#shadow {
+    position: fixed;
+    width:100%;
+    height:100%;
+    z-index:1;
+    background:#000;
+    opacity: 0.5;
+    left:0;
+    top:0;
+}

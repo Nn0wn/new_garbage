@@ -1,0 +1,58 @@
+extends main_template.pug
+
+block scripts
+    script.
+        function showReaders(i) {
+            document.getElementById("reader_info_" + i).style.display='block';
+        }
+        function closeReaders(i){
+            document.getElementById("reader_info_" + i).style.display='none';
+        }
+        function deleteBook(i) {
+
+        }
+        function showBookDialog(id) {
+            document.getElementById("book_dialog_" + id).style.display = 'block';
+        }
+    script(src='/javascripts/books.js')
+block content
+    -for(var id = 0; id < library.length; id++) {
+        -var book = library[id]
+        div(class='w3-modal w3-animate-opacity w3-card-4', id="reader_info_" + id)
+            div(class='w3-modal-content')
+                span(onclick='closeReaders(' + id + ')', class='w3-button w3-display-topright w3-hover-red') &times
+                include includes/readers
+    -}
+    div(class='w3-panel w3-xxlarge w3-center w3-badscript' style='margin-top:100px')=label
+    if library.length === 0
+        div(class='w3-panel w3-xxlarge w3-badscript') Книг нет
+    else
+        table(class='w3-table w3-border w3-bordered w3-card w3-poone w3-large')
+            tr(class='w3-black')
+                th Автор
+                th Название
+                th В наличии / На руках
+                th Дата публикации
+                th Информация о читателях
+                th Изменить информацию о книге
+                th Удалить книгу
+            -for(var i = 0; i < library.length; i++) {
+                -var book = library[i]
+                tr
+                    td(class='w3-border')=book["author"]
+                    td(class='w3-border')=book["name"]
+                    td(class='w3-border')=book["number"] + "/" + book["readers"].length
+                    td(class='w3-border')=book["publish_date"]
+                    td
+                        button(onclick='showReaders(' + i + ');', class='w3-button w3-black w3-hover-white w3-border w3-hover-border-orange') Список читателей
+                    td
+                        a(href='/book/' + i, class='w3-button w3-black w3-hover-white w3-border w3-hover-border-orange') К книге
+                    td
+                        button(onclick='deleteBook(' + i + ')', class='w3-button w3-red w3-hover-white w3-border w3-hover-border-red') Удалить
+            -}
+block buttons
+    div(class='w3-bar w3-black w3-poone w3-large')
+        a(class='w3-bar-item w3-button w3-black w3-hover-white', href='/book/' + library.length) Добавить книгу
+        a(class='w3-bar-item w3-button w3-black w3-hover-white', href='/index') Все книги
+        a(class='w3-bar-item w3-button w3-black w3-hover-white', href='/index/available') Книги в наличии
+        a(class='w3-bar-item w3-button w3-black w3-hover-white', href='/index/expired') Истек срок

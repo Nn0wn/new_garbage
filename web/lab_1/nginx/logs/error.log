@@ -1,0 +1,6 @@
+2018/11/28 09:50:59 [alert] 6176#3604: OpenEvent("ngx_master_10916") failed (2: The system cannot find the file specified)
+2018/11/28 09:53:48 [alert] 6272#10404: OpenEvent("ngx_master_8476") failed (2: The system cannot find the file specified)
+2018/11/28 09:57:52 [alert] 11132#9488: OpenEvent("ngx_master_5760") failed (2: The system cannot find the file specified)
+2018/11/28 09:58:54 [error] 11232#10312: *4 CreateFile() "C:\Users\zo_Om\WebstormProjects\myTetris/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:446", referrer: "https://localhost:446/"
+2018/11/28 10:04:30 [alert] 7244#9556: OpenEvent("ngx_master_9412") failed (2: The system cannot find the file specified)
+2018/11/28 13:07:26 [alert] 8116#3724: OpenEvent("ngx_master_9064") failed (2: The system cannot find the file specified)

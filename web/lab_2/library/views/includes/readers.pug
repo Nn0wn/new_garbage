@@ -1,0 +1,57 @@
+
+
+
+if (book["readers"].length === 0)
+    h4(class='w3-panel w3-padding-16 w3-badscript') Читателей нет
+    if (book["number"] > book["readers"].length)
+        div(class='w3-bar w3-black')
+            a(class='w3-bar-item w3-button w3-black w3-hover-green' onclick='showReaderDialog(' + id + ')') Добавить
+else
+    h4(class='w3-panel w3-padding-16 w3-badscript')="Количество читателей книги - " + book["readers"].length
+    table(class='w3-table w3-border w3-bordered w3-poone w3-large')
+        tr(class='w3-black')
+            th Имя
+            th Дата возврата
+            th Удалить читателя
+        -for (var i = 0; i < book["readers"].length; i++){
+            -var reader=book["readers"][i]
+            tr
+                td(class='w3-border')=reader["name"]
+                if new Date() > new Date(reader["date_of_return"])
+                    td(class='w3-border w3-red')=reader["date_of_return"]
+                else
+                    td(class='w3-border')=reader["date_of_return"]
+                td
+                    button(onclick='deleteReader(' + id + ', ' + i + ')', class='w3-button w3-red w3-hover-white w3-border w3-hover-border-red') Удалить
+        -}
+    if (book["number"] > book["readers"].length)
+        div(class='w3-bar w3-black')
+            a(class='w3-bar-item w3-button w3-black w3-hover-green' onclick='showReaderDialog(' + id + ')') Добавить
+div(class='w3-modal w3-container w3-animate-zoom w3-card-4', id="reader_dialog_" + id)
+    div(class='w3-modal-content')
+        div(class='w3-container w3-margin-bottom w3-black')
+            h4 Добавление читателя
+            span(onclick='closeReaderDialog(' + id + ')', class='w3-button w3-display-topright w3-black w3-hover-red') &times
+        div(class='w3-panel')
+            form
+                div(class='w3-container')
+                    b Имя
+                    input(id='reader_name' + id, class='w3-input', type='name')
+                    b Дата возврата
+                    input(id='return_date' + id, class='w3-input', type='date')
+        div(class='w3-bar w3-black')
+            a(class='w3-bar-item w3-button w3-black w3-hover-green', onclick='addReaderHere(' + id + ')') Добавить
+script(src='/javascripts/books.js')
+script.
+    function showReaderDialog(id) {
+        document.getElementById("reader_dialog_" + id).style.display='block';
+    }
+    function closeReaderDialog(id){
+        document.getElementById("reader_dialog_" + id).style.display='none';
+    }
+    function addReaderHere(id){
+        let reader={}
+        reader["name"] = document.getElementById('reader_name' + id).value;
+        reader["date_of_return"] = document.getElementById('return_date' + id).value;
+        addReader(id, reader);
+    }

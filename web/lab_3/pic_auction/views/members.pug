@@ -1,0 +1,36 @@
+extends main_template
+
+block content
+    table(class="w3-table-all" id = "contacts_table")
+        thead
+            tr
+                th Имя
+                th Фамилия
+                th Телефон
+                th Информация
+    
+    div(class='w3-modal w3-animate-zoom w3-card-4' id="contact_info" role="dialog" aria-hidden="true")
+        div(class="w3-modal-content" role="document")
+            form(class='w3-container')
+                div(class='w3-row')
+                    h4 Информация о контакте
+                    span(id="contact_info_index" style='visibility: hidden') 0
+                label Имя
+                input(type="text" class="w3-input w3-border" id="name_input" value="DUMMY NAME")
+                p
+                label Фамилия
+                input(type="text" class="w3-input w3-border" id="surname_input" value="/res/dummy.jpg")
+                p
+                label Номер
+                input(type="text" class="w3-input w3-border" id="phone_input" value="DUMMY AUTHOR")
+                p
+                div(class='w3-row')
+                    button(type="button" class="w3-button black_button w3-hover-white" onclick='close_info()' style='margin-right: 10px') Закрыть
+                    button(type="button" class="w3-button red_button w3-hover-white" onclick="delete_member()" style='margin-right: 10px') Удалить
+                    button(type="button" class="w3-button white_button w3-hover-white" onclick="add_member()" style='margin-right: 10px') Сохранить
+                p
+block sidebar
+    button(type="button" class='w3-bar-item w3-button w3-red w3-hover-white w3-border w3-border-black' onclick="show_add_member()" style='text-align: center') Добавить
+
+block scripts
+    script(src='/js/members.js')

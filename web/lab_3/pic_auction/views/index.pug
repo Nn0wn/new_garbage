@@ -1,0 +1,19 @@
+extends main_template
+
+block scripts
+    script(src="/js/index.js")
+
+block content
+    table(class="w3-table-all" id = "gallery_table")
+        thead
+            tr
+                th #
+                th Название
+                th Автор
+                th Информация
+
+    include picture_modal
+
+block sidebar
+    button(class='w3-bar-item w3-button w3-red w3-hover-white w3-border w3-border-black' onclick="show_add_image()" style='text-align: center') Добавить
+

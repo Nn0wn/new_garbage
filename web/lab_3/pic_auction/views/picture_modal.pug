@@ -1,0 +1,39 @@
+div(class='w3-modal w3-animate-zoom w3-card-4' id="picture_info")
+    div(class='w3-modal-content' style='width: 1500px; overflow: hidden' id='modal_content')
+        div(class='w3-row')
+            div(class='w3-col s8 m8 l8')
+                img(src='/res/dummy.jpg' class="popup_image" id="image_output" style='width:100%')
+            div(class='w3-col s4 m4 l4 w3-container w3-margin-bottom' id='right_content' style='display: flex')
+                form(class='w3-container' id='form-container')
+                    div(class='w3-row')
+                        h4(id='picture_info_title') Информация о картине
+                        span(id="picture_info_index" style='visibility:hidden') 0
+                    label Имя
+                    input(class='w3-input w3-border' type='text' id="name_input" value="DUMMY NAME")
+                    p
+                    label Ссылка
+                    input(class='w3-input w3-border' type='text' id="url_input" value="/res/dummy.jpg")
+                    p
+                    label Автор
+                    input(class='w3-input w3-border' type='text' id="author_input" value="DUMMY AUTHOR")
+                    p
+                    label Описание
+                    textarea(class='w3-input w3-border' id="description_input") DUMMY DESCRIPTION
+                    p
+                    div(class="w3-col s4")
+                        label Цена
+                        input(type="number" class='w3-input w3-border' id="price_input" value=100000 style="margin-right:10px")
+                    div(class="w3-col s4")
+                        label Мин. шаг
+                        input(type="number" class='w3-input w3-border' id="min_step_input" value=100 style="margin-right:10px")
+                    div(class="w3-col s4")
+                        label Макс. шаг
+                        input(type="number" class='w3-input w3-border' id="max_step_input" value=1000 style="margin-right:10px")
+                    p
+                    p
+                        input(type="checkbox" id="forSaleCheckBox" class="form-check-input" style='margin-top: 10px')
+                        label(for="forSaleCheckBox" class="form-check-label w3-padding" style='margin-top: 10px') Доступна для продажи
+                        div(class='w3-row')
+                            button(type="button" class="w3-button black_button w3-hover-white" onclick="close_info()" style='margin-right: 10px') Закрыть
+                            button(type="button" class="w3-button red_button w3-hover-white" onclick="delete_image()" style='margin-right: 10px') Удалить
+                            button(type="button" class="w3-button white_button w3-hover-white" onclick="add_image()" style='margin-right: 10px') Сохранить

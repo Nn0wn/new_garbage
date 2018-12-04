@@ -1,0 +1,41 @@
+extends main_template
+
+block content
+    div(class='w3-container w3-black w3-margin-bottom ' style='margin-top:100px')
+        h3
+            if (book)
+                span Изменение информации о книге
+            else
+                span Добавление книги
+    form(class='w3-border')
+        div(class='w3-container w3-black w3-margin-bottom')
+            h4 Информация о книге
+        div(class='w3-container')
+            b Идентификатор
+            input(id='id_input', class='w3-input', type='number', value=id, disabled='true')
+            b Автор
+            input(id ='author_input', class='w3-input', type='text', value=book["author"])
+            b Название
+            input(id = 'name_input', class='w3-input', type='text', value=book["name"])
+            b Дата публикации
+            input(id = 'date_input', class='w3-input', type='date', value=book["publish_date"])
+            b Количество экземпляров
+            input(id = 'number_input', class='w3-input', type='number', value=book["number"])
+            p
+        div(class='w3-bar w3-black')
+            a(class='w3-bar-item w3-button w3-black w3-hover-green' onclick='saveBookHere()') Сохранить
+            a(href='/index', class='w3-bar-item w3-button w3-black w3-hover-red') Отмена
+
+block scripts
+    script(src='/javascripts/books.js')
+    script.
+        function saveBookHere() {
+            let book_update_info = {};
+            book_update_info["name"] = document.getElementById('name_input').value;
+            book_update_info["author"] = document.getElementById('author_input').value;
+            book_update_info["publish_date"] = document.getElementById('date_input').value;
+            book_update_info["number"] = document.getElementById('number_input').value;
+            book_update_info["id"] = document.getElementById(`id_input`).value;
+            book_update_info["readers"] = [] //DUMMY
+            saveBook(book_update_info)
+        }

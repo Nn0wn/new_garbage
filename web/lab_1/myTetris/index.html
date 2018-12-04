@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tetris</title>
+    <link rel='stylesheet' type="text/css" href='tetris.css'/>
+</head>
+<body>
+<div id="main">
+    <div id="right">
+        <div id="head" align="center">
+            TETRIS
+        </div>
+        <div id="tetris">
+            <span onclick="showModalWin()" id="start-btn">START</span>
+            <span onclick="gameOver()" id="stop-btn">STOP</span>
+            <span onclick="resetRecords()" id="reset-btn">RESET RECORDS</span>
+        </div>
+        <div id="rules">
+            Arrow Up - turn<br>
+            Arrow Left/Right - move<br>
+            Arrow Down - down<br>
+        </div>
+        <div id="info">
+        </div>
+        <div id="next">
+            <br>Next figure</br>
+            <canvas id="nextfigure"></canvas>
+        </div>
+    </div>
+    <div id="left">
+        <div>
+        <canvas id="tetrisfield"></canvas>
+        </div>
+    </div>
+</div>
+
+<div style="text-align: center" id="popupWin" class="modalwin">
+    <form>
+        <legend style="font-size:32px">Login window</legend><p>
+        <label for="name">Your nick is:  </label>
+        <input type="text" id="name"></p>
+        <input autofocus onclick="init();hide();saveName()" type="button" value="Enter" id="ok-btn">
+    </form>
+</div>
+</body>
+<script src="login.js"></script>
+<script src="canvas.js"></script>
+<script src="figure.js"></script>
+<script src="tetris.js"></script>
+</html>
