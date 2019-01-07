@@ -1,0 +1,244 @@
+{
+  "stocks": [
+    {
+      "name": "LOL",
+      "type": "Static",
+      "start_price": 4235,
+      "dynamic": 0,
+      "price": 100,
+      "available_quantity": 1000,
+      "quantity": 1000,
+      "params": [
+        {
+          "name": "value",
+          "text": "Value",
+          "value": 4235
+        }
+      ]
+    },
+    {
+      "name": "QWE",
+      "type": "Binomial",
+      "start_price": 1591,
+      "dynamic": 0,
+      "price": 1591,
+      "available_quantity": 1000,
+      "quantity": 1000,
+      "params": [
+        {
+          "name": "variation",
+          "text": "Variation",
+          "value": 30
+        }
+      ]
+    },
+    {
+      "name": "LRG",
+      "type": "Binomial",
+      "start_price": 33124,
+      "dynamic": 0,
+      "price": 33124,
+      "available_quantity": 1000,
+      "quantity": 1000,
+      "params": [
+        {
+          "name": "variation",
+          "text": "Variation",
+          "value": 1000
+        }
+      ]
+    },
+    {
+      "name": "CRZY",
+      "type": "Uniform",
+      "start_price": 500,
+      "dynamic": 0,
+      "price": 500,
+      "available_quantity": 1000,
+      "quantity": 1000,
+      "params": [
+        {
+          "name": "first_price",
+          "text": "First price",
+          "value": 250
+        },
+        {
+          "name": "second_price",
+          "text": "Second price",
+          "value": 750
+        }
+      ]
+    },
+    {
+      "name": "BRN",
+      "type": "Bernoulli",
+      "start_price": 2500,
+      "dynamic": 0,
+      "price": 2500,
+      "available_quantity": 1000,
+      "quantity": 1000,
+      "params": [
+        {
+          "name": "first_price",
+          "text": "First price",
+          "value": 2500
+        },
+        {
+          "name": "second_price",
+          "text": "Second price",
+          "value": 5000
+        }
+      ]
+    },
+    {
+      "name": "BNML",
+      "type": "Binomial",
+      "start_price": 25000,
+      "dynamic": 0,
+      "price": 25000,
+      "available_quantity": 1000,
+      "quantity": 1000,
+      "params": [
+        {
+          "name": "variation",
+          "text": "Variation",
+          "value": 1500
+        }
+      ]
+    },
+    {
+      "name": "UNTD",
+      "type": "Binomial",
+      "start_price": 5000,
+      "dynamic": 0,
+      "price": 5000,
+      "available_quantity": 1000,
+      "quantity": 1000,
+      "params": [
+        {
+          "name": "variation",
+          "text": "Variation",
+          "value": 500
+        }
+      ]
+    },
+    {
+      "name": "UFRM",
+      "type": "Uniform",
+      "start_price": 15000,
+      "dynamic": 0,
+      "price": 15000,
+      "available_quantity": 1000,
+      "quantity": 1000,
+      "params": [
+        {
+          "name": "first_price",
+          "text": "First price",
+          "value": 10000
+        },
+        {
+          "name": "second_price",
+          "text": "Second price",
+          "value": 20000
+        }
+      ]
+    },
+    {
+      "name": "DHRD",
+      "type": "Bernoulli",
+      "start_price": 1000,
+      "dynamic": 0,
+      "price": 1000,
+      "available_quantity": 1000,
+      "quantity": 1000,
+      "params": [
+        {
+          "name": "first_price",
+          "text": "First price",
+          "value": 1000
+        },
+        {
+          "name": "second_price",
+          "text": "Second price",
+          "value": 2000
+        }
+      ]
+    },
+    {
+      "name": "WRD",
+      "type": "Uniform",
+      "start_price": 1000,
+      "dynamic": 0,
+      "price": 1000,
+      "available_quantity": 1000,
+      "quantity": 1000,
+      "params": [
+        {
+          "name": "first_price",
+          "text": "First price",
+          "value": 500
+        },
+        {
+          "name": "second_price",
+          "text": "Second price",
+          "value": 1500
+        }
+      ]
+    },
+    {
+      "name": "FCKD",
+      "type": "Static",
+      "start_price": 213,
+      "dynamic": 0,
+      "price": 213,
+      "available_quantity": 1000,
+      "quantity": 1000,
+      "params": [
+        {
+          "name": "value",
+          "text": "Value",
+          "value": 213
+        }
+      ]
+    }
+  ],
+  "brokers": [
+    {
+      "name": "Paul",
+      "type": "Afk",
+      "money": 1000,
+      "money_in_stocks": 0,
+      "total_money": 2000,
+      "stocks": [
+        {
+          "name": "LOL",
+          "quantity": 10
+        }
+      ]
+    },
+    {
+      "name": "Ivan",
+      "type": "Afk",
+      "money": 150000,
+      "money_in_stocks": 0,
+      "total_money": 150000,
+      "stocks": []
+    },
+    {
+      "name": "George",
+      "type": "Afk",
+      "money": 200000,
+      "money_in_stocks": 0,
+      "total_money": 200000,
+      "stocks": []
+    },
+    {
+      "name": "Abraham",
+      "type": "Afk",
+      "money": 300000,
+      "money_in_stocks": 0,
+      "total_money": 300000,
+      "stocks": []
+    }
+  ]
+}

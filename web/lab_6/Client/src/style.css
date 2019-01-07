@@ -1,0 +1,40 @@
+@import url('https://www.w3schools.com/w3css/4/w3.css');
+@import url('https://www.w3schools.com/lib/w3-theme-blue-grey.css');
+
+.main_content {
+  margin-top: 75px;
+}
+
+.card_content {
+  padding: 16px;
+}
+
+.logo{
+  padding: 3px !important;
+  padding-top: 1px !important;
+}
+
+.header{
+  margin: 0px;
+  padding-left: 3px !important;
+}
+
+.underline{
+   text-decoration: underline;
+}
+
+.price_container {
+  height: 40px;
+  line-height: 40px;
+  margin-bottom: 10px;
+}
+.price_container .price_text {
+  font-size: 36px;
+}
+.price_container .price_img {
+  float: left;
+}
+
+.price_container .price_dynamic_text {
+  font-size: 20px;
+}
