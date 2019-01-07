@@ -1,0 +1,36 @@
+extends layout
+
+block content
+    script.
+        $(function () {
+            $("#dial").dialog({
+                autoOpen: false,
+                show: {
+                    effect: "blind",
+                    duration: 1000
+                },
+                hide: {
+                    effect: "explode",
+                    duration: 1000
+                }
+            });
+        });
+
+    div(id='dial' title='Error')
+        p You don't have enough money or entered wrong price
+    div(class='w3-row')
+        div(class='w3-half')
+            include includes/picture_info
+            include includes/user_info
+        div(class='w3-half')
+            div(class='w3-margin-left w3-margin-top w3-margin-right')
+                div(class='w3-container w3-black w3-card-4')
+                    p
+                        label Enter Price
+                        input(class='w3-input' id='new_price_input' type='number' disabled)
+                    div(class='w3-bar w3-margin-bottom')
+                        button(class='w3-btn w3-green w3-margin-right' onclick='newPrice()' id='set_button' disabled) Raise Price
+                        button(class='w3-btn w3-red' onclick='participate()' id='request_button' disabled) Participate
+            include includes/trade_log
+
+    script(src='/javascripts/client.js')

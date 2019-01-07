@@ -1,0 +1,47 @@
+{
+  "name": "pic_auction_2",
+  "version": "1.0.0",
+  "dependencies": {
+    "@babel/core": "^7.1.6",
+    "@sentry/node": "^4.3.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.4",
+    "babel-preset-env": "^1.7.0",
+    "body-parser": "latest",
+    "express": "latest",
+    "express-session": "^1.15.6",
+    "flow-bin": "^0.84.0",
+    "flow-remove-types": "^1.2.3",
+    "mocha": "^5.2.0",
+    "morgan": "^1.9.1",
+    "multer": "^1.4.1",
+    "pg": "^7.6.0",
+    "pug": "^2.0.3",
+    "socket.io": "^2.1.1",
+    "socket.io-logger": "0.0.2",
+    "uws": "^99.0.0",
+    "webpack": "^4.23.1",
+    "webpack-node-externals": "^1.7.2",
+    "winston": "^3.1.0",
+    "winston-raven-sentry": "^2.0.0",
+    "yargs": "^12.0.2"
+  },
+  "scripts": {
+    "webpack": "webpack",
+    "test": "mocha",
+    "build": "flow-remove-types src/ -d lib/",
+    "prepublish": "npm run build",
+    "flow": "flow"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^4.6.0",
+    "css-loader": "^1.0.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^2.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "jquery": "^3.3.1",
+    "sinon": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack-cli": "^3.1.2"
+  }
+}

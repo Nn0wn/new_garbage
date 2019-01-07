@@ -1,0 +1,20 @@
+div(id='modal' class='w3-modal')
+    div(class='w3-modal-content')
+        div(class='w3-container')
+            span(onclick="document.getElementById('modal').style.display='none'"
+            class='w3-button w3-display-topright') &times
+            div(class='w3-container w3-margin-bottom')
+                p Number:
+                    span(id='index_info')
+                p For auction:
+                    input(type='checkbox' id='for_input' disabled='true')
+                b URL
+                input(type='text' class='w3-input' id='url_input' disabled='true')
+                b Description
+                textarea(class='w3-input' id='descr_input' disabled='true')
+                b Start Price
+                input(type='text' class='w3-input' id='sprice_input' disabled='true')
+                b Minimal Step
+                input(type='text' class='w3-input' id='minstep_input' disabled='true')
+                b Maximal Step
+                input(type='text' class='w3-input' id='maxstep_input' disabled='true')

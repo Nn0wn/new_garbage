@@ -1,0 +1,17 @@
+div(class='w3-margin-top')
+    div(class='w3-container')
+        div(class='w3-row w3-margin-bottom')
+            div(class='w3-container w3-black w3-card-4')
+                button(class='w3-btn w3-margin-top w3-red w3-block'
+                onclick='document.getElementById("modal").style.display="block"') Show info
+                p Countdown
+                    input(class='w3-input w3-border' id='timeout_info' type='number' disabled)
+                p Name
+                    input(class='w3-input w3-border' id='name_input_info' type='text' disabled)
+                p Author
+                    input(class='w3-input w3-border' id='author_input_info' type='text' disabled)
+                p Current Price
+                    input(class='w3-input w3-border' id='current_price_info' type='number' disabled)
+                p
+include picture_modal
+script(src='/javascripts/picture_info.js')
