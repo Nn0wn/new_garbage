@@ -1,0 +1,8 @@
+148.92.97.2
+161
+get, getnext
+Counter.OutputIP;IP.ARPTable;IP.SubnetMask_Eth0
+IP.Address_eth0="148.92.97.2";IP.SubnetMask_eth0="255.255.0.0";IP.DefaultGateway="148.92.98.1"
+noname
+arp -d 136.15.63.254
+arp -d 136.15.63.250
