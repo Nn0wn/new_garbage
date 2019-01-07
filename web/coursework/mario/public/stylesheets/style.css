@@ -1,0 +1,16 @@
+body {
+  background: #000000;
+  margin: 0;
+}
+
+#screen{
+  display: block;
+  height: 100vh;
+  margin: auto;
+  image-rendering: auto;
+
+}
+
+#hid{
+    display: block !important;
+}

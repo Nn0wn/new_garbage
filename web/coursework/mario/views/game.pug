@@ -1,0 +1,13 @@
+extends layout
+
+
+block content
+  div(class='w3-container')
+     div(id="record" class="w3-modal")
+        div(style="width:500px" class="w3-modal-content w3-animate-zoom w3-card-4")
+          header(class="w3-container w3-red")
+            h2 RECORDS TABLE
+          div(id="info")
+  canvas(id="screen" width="256" height="240")
+  script(type='module' src='/javascripts/main.js')
+  script(src='/lib/jquery/jquery-3.3.1.min.js')
