@@ -10,26 +10,38 @@ def f1(x):
 
 
 # точки для просчета углов
-inner_fig_angles = np.linspace(0, 2 * np.pi, 50)
-outer_fig_angles = np.linspace(0, 2 * np.pi, 50)
+fig_angles = np.linspace(0, 2 * np.pi, 50)
+
+r1 = 1.5
+r2 = 2.25
+r3 = 3
 
 # считаем точки вершин треугольников фигур
-inner_fig = np.array([(r * np.cos(alpha), r * np.sin(alpha)) for alpha, r in zip(inner_fig_angles,
-                                                                                 f1(inner_fig_angles))])
-outer_fig = np.array([(6 * np.cos(alpha), 6 * np.sin(alpha)) for alpha in outer_fig_angles])
+inner_fig = np.array([(r * np.cos(alpha), r * np.sin(alpha)) for alpha, r in zip(fig_angles,
+                                                                                 f1(fig_angles))])
+outer_fig = np.array([(6 * np.cos(alpha), 6 * np.sin(alpha)) for alpha in fig_angles])
+
+inner_ring_1 = np.array([(r * np.cos(alpha), r * np.sin(alpha)) for alpha, r in zip(fig_angles,
+                                                                                    f1(fig_angles) + r1)])
+inner_ring_2 = np.array([(r * np.cos(alpha), r * np.sin(alpha)) for alpha, r in zip(fig_angles,
+                                                                                    f1(fig_angles) + r2)])
+inner_ring_3 = np.array([(r * np.cos(alpha), r * np.sin(alpha)) for alpha, r in zip(fig_angles,
+                                                                                    f1(fig_angles) + r3)])
+
 
 # точки для построения высокоточных фигур
-inner_fig_draw_angles = np.linspace(0, 2 * np.pi, 2000)
-outer_fig_draw_angles = np.linspace(0, 2 * np.pi, 2000)
+fig_draw_angles = np.linspace(0, 2 * np.pi, 2000)
 
 # рисуем фигуры
-inner_fig_draw = np.array([(r * np.cos(alpha), r * np.sin(alpha)) for alpha, r in zip(inner_fig_draw_angles,
-                                                                                      f1(inner_fig_draw_angles))])
-outer_fig_draw = np.array([(6 * np.cos(alpha), 6 * np.sin(alpha)) for alpha in outer_fig_draw_angles])
+inner_fig_draw = np.array([(r * np.cos(alpha), r * np.sin(alpha)) for alpha, r in zip(fig_draw_angles,
+                                                                                      f1(fig_draw_angles))])
+outer_fig_draw = np.array([(6 * np.cos(alpha), 6 * np.sin(alpha)) for alpha in fig_draw_angles])
 
 # объединяем массивы фигур по x и y
-X = np.hstack((inner_fig[:, 0], outer_fig[:, 0]))
-Y = np.hstack((inner_fig[:, 1], outer_fig[:, 1]))
+X = np.hstack((inner_fig[:, 0], outer_fig[:, 0], inner_ring_1[:, 0], inner_ring_2[:, 0],
+               inner_ring_3[:, 0]))
+Y = np.hstack((inner_fig[:, 1], outer_fig[:, 1], inner_ring_1[:, 1], inner_ring_2[:, 1],
+               inner_ring_3[:, 1]))
 
 triangulation = tri.Triangulation(X, Y)
 
