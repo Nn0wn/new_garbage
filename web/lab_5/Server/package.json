@@ -1,0 +1,28 @@
+{
+  "name": "angular_stock",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha --require ts-node/register tests/**.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "morgan": "^1.9.1",
+    "tslint": "^5.11.0",
+    "winston": "^3.1.0",
+    "express": "latest",
+    "body-parser": "latest"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/core-js": "^2.5.0",
+    "@types/mocha": "^5.2.5",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.1.6"
+  }
+}

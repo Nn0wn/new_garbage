@@ -1,0 +1,155 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://www.w3schools.com/w3css/4/w3.css");
+
+.get_contrast_color(@color){
+    @return: #FFFFFF - @color
+}
+
+.darken_color(@color){
+    @return: @color - #333333
+}
+
+.lighten_color(@color){
+    @return: @color + #333333
+}
+
+.loading_image{
+    display: block;
+    margin: auto;
+}
+
+@light_button_color: #D7DADC;
+@dark_button_color: lightgreen;
+@red_button_color: red;
+@page_pc: black;
+@container_border_color: #343536;
+@container_bc: blue;
+@navbar_bc: blue;
+@selected_color: @light_button_color;
+
+.white_button{
+    background-color: @light_button_color;
+    color: .get_contrast_color(@light_button_color)[@return] !important;
+    border: @dark_button_color 1px solid !important;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    height: 40px;
+    &:hover{
+        background-color: .darken_color(@light_button_color)[@return];
+    }
+}
+
+.black_button{
+    background-color: @dark_button_color;
+    color: .get_contrast_color(@dark_button_color)[@return] !important;
+    border: @light_button_color 1px solid !important;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    height: 40px;
+    &:hover{
+        background-color: .lighten_color(@dark_button_color)[@return];
+    }
+}
+
+.red_button{
+    background-color: @red_button_color;
+    color: .get_contrast_color(@dark_button_color)[@return] !important;
+    border: @light_button_color 1px solid !important;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    height: 40px;
+    &:hover{
+        background-color: .lighten_color(@red_button_color)[@return];
+    }
+}
+
+.body_container{
+    background-color: wheat;
+    color: .get_contrast_color(@page_pc)[@return];
+}
+
+.main_navbar{
+    background-color: @navbar_bc;
+   border-bottom: @container_border_color 1px solid;
+    .link_img{
+        height: 25px;
+        width: 25px;
+        margin-right: 6px;
+        vertical-align: middle;
+    }
+    img{
+        height: 37px;
+        width: 37px;
+    }
+}
+
+.selected_item{
+    background-color: @selected_color;
+    color: .get_contrast_color(@selected_color)[@return];
+}
+
+.content{
+    margin: 10px;
+    padding: 10px 16px;
+    background-color: @container_bc;
+    border: @container_border_color 1px solid;
+    border-radius: 5px;
+}
+
+.sidebar {
+    background-color: .lighten_color(@navbar_bc) [@return];
+}
+
+.popup_content{
+    background-color: .lighten_color(@container_bc)[@return];
+    .popup_image{
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+}
+
+@up_color: #00a625;
+@down_color: #ff000b;
+@warn_color: #f30016;
+
+.price_up{
+    color: @up_color;
+}
+.price_down{
+    color: @down_color;
+}
+.warning{
+    color: @warn_color;
+}
+
+.small_price_img{
+    float: left;
+    img {
+        height: 24px;
+        width: 24px;
+        margin-right: 10px;
+    }
+}
+
+.price_container{
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 10px;
+    .price_text{
+        font-size: 36px;
+        margin-right: 15px;
+    }
+    .price_img {
+        float: left;
+        img {
+            height: 40px;
+            width: 40px;
+            margin-right: 10px;
+        }
+    }
+    .price_dynamic_text{
+        font-size: 20px;
+    }
+}
+

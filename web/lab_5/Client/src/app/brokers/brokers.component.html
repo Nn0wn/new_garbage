@@ -1,0 +1,58 @@
+<div *ngIf="!brokers">
+    <img src="assets/loading.gif" class="loading_image">
+</div>
+<div *ngIf="brokers">
+    <div class="w3-row">
+        <div class="w3-col s12" [ngClass]="{
+                'm8': selectedBroker || controls_toggled,
+                'm12': !selectedBroker && !controls_toggled
+            }">
+            <div class="content">
+                <table class="w3-table w3-bordered">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Money</th>
+                        <th>Money in stocks</th>
+                        <th>Total money</th>
+                    </tr>
+                    </thead>
+                    <tr *ngFor="let broker of brokers" [ngClass]="{
+                          'w3-blue-gray' : broker===selectedBroker
+                        }" (click)="onSelect(broker)">
+                        <th>{{broker.name}}</th>
+                        <td>{{broker.type}}</td>
+                        <td>{{broker.money}}</td>
+                        <td>{{broker.money_in_stocks}}</td>
+                        <td>{{broker.total_money}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="w3-col s12 m4" *ngIf="selectedBroker">
+            <div class="w3-display-container content">
+                <h2>Information</h2>
+                <span (click)="selectedBroker = null"
+                      class="w3-button w3-display-topright">&times;</span>
+                <label>Name:</label>
+                <input [(ngModel)]="selectedBroker.name" class="w3-input" (change)="onChange()" [ngClass]="{
+                'w3-margin-bottom': unique_names,
+                'w3-red': !unique_names
+                }">
+                <label class="warning w3-margin-bottom" *ngIf="!unique_names">Names must be unique <br></label>
+                <label>Type:</label>
+                <select class="w3-select w3-margin-bottom" [(ngModel)]="selectedBroker.type"
+                        [attr.disabled]="isEditable ? disabled : '' " (change)="onChange()">
+                    <option *ngFor="let example_broker of brokers_info" value={{example_broker.type}}>
+                        {{example_broker.name}}
+                    </option>
+                </select>
+                <button class="red_button w3-block" (click)="onDelete()">Delete</button>
+            </div>
+        </div>
+        <div class="w3-col s12 m4" *ngIf="controls_toggled">
+            <app-controls></app-controls>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,95 @@
+<div *ngIf ="!stocks">
+    <img src="assets/loading.gif" class="loading_image">
+</div>
+<div *ngIf="stocks">
+    <div class="w3-row">
+        <div class="w3-col s12" [ngClass]="{
+                'm8': selectedStock || controls_toggled,
+                'm12': !selectedStock && !controls_toggled
+            }">
+            <div class="content">
+                <table class="w3-table w3-bordered">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th *ngIf="!selectedStock && !controls_toggled">Type</th>
+                        <th *ngIf="!selectedStock && !controls_toggled">Start price</th>
+                        <th>Price</th>
+                        <th>Dynamic</th>
+                        <th>Quantity</th>
+                    </tr>
+                    </thead>
+                    <tr *ngFor="let stock of stocks" [ngClass]="{
+                          'w3-blue-gray' : stock===selectedStock
+                        }"
+                        (click)="onSelect(stock)">
+                        <th>{{stock.name | uppercase}}</th>
+                        <td *ngIf="!selectedStock && !controls_toggled">{{stock.type}}</td>
+                        <td *ngIf="!selectedStock && !controls_toggled">{{stock.start_price}}</td>
+                        <td>{{stock.price}}</td>
+                        <td [ngClass]="{
+                                'price_up': stock.dynamic > 0,
+                                'price_down': stock.dynamic < 0
+                            }">
+                            <div class="small_price_img">
+                                <img src="assets/icons/up.png" *ngIf="stock.dynamic > 0">
+                                <img src="assets/icons/down.png" *ngIf="stock.dynamic < 0">
+                                <img src="assets/icons/stable.png" *ngIf="stock.dynamic == 0">
+                            </div>
+                            {{stock.dynamic_text}} ({{stock.dynamic_percent_text}})
+
+                        </td>
+                        <td>{{stock.available_quantity}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="w3-col s12 m4" *ngIf="selectedStock">
+            <div class=" w3-display-container content">
+                <h2>Information </h2>
+                <span (click)="selectedStock = undefined"
+                      class="w3-button w3-display-topright">&times;</span>
+                <div class="price_container">
+                    <div class="price_img">
+                        <img src="assets/icons/up.png" *ngIf="selectedStock.dynamic > 0">
+                        <img src="assets/icons/down.png" *ngIf="selectedStock.dynamic < 0">
+                        <img src="assets/icons/stable.png" *ngIf="selectedStock.dynamic == 0">
+                    </div>
+                    <span class="price_text" [ngClass]="{
+                        'price_up': selectedStock.dynamic > 0,
+                        'price_down': selectedStock.dynamic < 0
+                        }">{{selectedStock.price}} </span>
+                    <span class="price_dynamic_text" [ngClass]="{
+                        'price_up': selectedStock.dynamic > 0,
+                        'price_down': selectedStock.dynamic < 0
+                        }">{{selectedStock.dynamic_text}}  ({{selectedStock.dynamic_percent_text}})
+                        </span>
+                </div>
+                <label>Name:</label>
+                <input [(ngModel)]="selectedStock.name" class="w3-input" (change)="onChange()"
+                       [ngClass]="{
+                            'w3-margin-bottom': unique_names,
+                            'w3-red': !unique_names
+                        }">
+                <label class="warning w3-margin-bottom" *ngIf="!unique_names">Names must be unique <br></label>
+                <label>Type:</label>
+                <select class="w3-select w3-margin-bottom" [(ngModel)]="selectedStock.type"
+                        [attr.disabled]="isEditable ? disabled : '' " (change)="onChange()">
+                    <option *ngFor="let example_stock of stocks_info" value={{example_stock.type}}>
+                        {{example_stock.name}}
+                    </option>
+                </select>
+                <div *ngFor="let param of selectedStock.params; let i = index">
+                    <label>{{param.text}}</label>
+                    <input [(ngModel)]="selectedStock.params[i].value" class="w3-input w3-margin-bottom"
+                           [attr.disabled]="isEditable ? disabled : '' " (change)="onChange()">
+                </div>
+                <button class="red_button w3-block" (click)="onDelete()">Delete</button>
+            </div>
+        </div>
+        <div class="w3-col s12 m4" *ngIf="controls_toggled">
+            <app-controls></app-controls>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="w3-top w3-bar main_navbar">
+    <b class="w3-bar-item">Stock Market Simulator</b>
+    <a class="w3-bar-item w3-button" routerLink="/stocks">Stocks</a>
+    <a class="w3-bar-item w3-button" routerLink="/brokers">Brokers</a>
+    <button class="w3-bar-item w3-button" (click)="onControlsToggle()">Controls</button>
+    <img src="assets/icons/forward.png" class="w3-bar-item w3-button w3-right">
+    <img src="assets/icons/next.png" class="w3-bar-item w3-button w3-right" (click)="onNext()">
+    <img src="assets/icons/pause.png" class="w3-bar-item w3-button w3-right">
+    <img src="assets/icons/back.png" class="w3-bar-item w3-button w3-right" (click)="onBack()">
+    <div class="w3-bar-item w3-right">{{day}} / {{max_day}}</div>
+    <input type="number" class="w3-bar-item w3-right" style="width: 7%" [(ngModel)]="day" (change)="updateDay()">
+    <label class="w3-bar-item w3-right">Day:</label>
+</div>
+
+
