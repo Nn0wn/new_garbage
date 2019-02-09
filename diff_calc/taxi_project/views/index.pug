@@ -1,0 +1,36 @@
+extends layout
+
+
+block content
+    div(class='w3-bar w3-black w3-border w3-border-yellow w3-margin' style='width:99.3%')
+        a(class='w3-bar-item w3-tag w3-middle w3-padding w3-xxlarge w3-cell-middle w3-text-yellow') Такси
+        a(class='w3-bar-item w3-tag w3-middle w3-padding w3-xxlarge w3-cell-middle w3-text-yellow' style='float:right') Телефон: 8-800-555-35-35
+    div(class='w3-row')
+        div(class='w3-half')
+            div(class='w3-container')
+                div(class='w3-row w3-margin-bottom w3-margin-top')
+                    div(class='w3-container w3-black w3-card-4 w3-border w3-border-yellow')
+                        p Имя
+                            input(class='w3-input w3-border w3-margin-top' id='name' type='text' placeholder='Введите имя' required)
+                            p(id='notice_name') Адрес не найден
+                        p Телефон
+                            input(class='w3-input w3-border w3-margin-top' id='tel' type='text' placeholder='Введите телефон' required)
+                            p(id='notice_tel') Адрес не найден
+                        p Откуда
+                            input(class='w3-input w3-border w3-margin-top' id='start_point' type='text' placeholder='При пустом поле учтется ваше настоящее местоположение')
+                            p(id='notice_start') Адрес не найден
+                        p Куда
+                            input(class='w3-input w3-border w3-margin-top' id='dest_point' type='text' placeholder='Введите адрес назначения' required)
+                            p(id='notice_dest') Адрес не найден
+                        p
+                            div(class='w3-bar')
+                                div(class='w3-row')
+                                    button(class='w3-btn w3-bar-item w3-margin-top w3-yellow w3-margin-right w3-hover-white w3-border w3-border-black w3-hover-border-yellow' id='submit_btn' style='width:25%') Построить маршрут
+                                    button(class='w3-btn w3-bar-item w3-margin-top w3-white w3-margin-right w3-border w3-border-yellow w3-text-grey' id='cost_btn' style='width:46.1%' ) Здесь будет примерная стоимость
+                                    button(class='w3-btn w3-bar-item w3-margin-top w3-yellow w3-hover-white w3-border w3-border-black w3-hover-border-yellow' id='submit_cost_btn' style='width:25%' disabled) Подтвердить
+        div(class='w3-half')
+            div(class='w3-black w3-card-4 w3-margin-left w3-margin-top w3-margin-bottom')
+                div(id="map" style="width: 900x; height: 600px")
+
+block scripts
+    script(type='module' src="/javascripts/geolocation.js")

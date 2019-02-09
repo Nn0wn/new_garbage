@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="color: #3f51b5 ; background: #ddffff">
+
+<script src="dist/socket.io.js"></script>
+<div>
+    <h1>Таксист</h1>
+    <p id="number"></p>
+</div>
+<div id="info"></div>
+<script>
+    const number= prompt("Введите номер машины", "x000xx");
+    document.getElementById("number").innerText="Номер машины: "+number;
+    var socket= io.connect("http://localhost:3030");
+    socket.json.emit("hello", {number: number,xCoord:10,yCoord:12});
+
+    socket.on("connect", () => {
+        socket.on('newClient', (msg)=>{
+            console.log("client");
+            document.getElementById("info").innerText = "Новый клиент!"
+        });
+        socket.on("helloAns",st=>{
+            if(st.status==="ok")document.getElementById("number").innerText="Номер машины: "+number;
+            else {
+                alert("Такая машина уже зарегистрирована");
+                document.location.reload();
+            }
+        });
+        socket.on("reach",(data)=> {
+            document.getElementById("info").innerText="";
+        });
+    });
+
+</script>
+
+
+
+</body>
+</html>
